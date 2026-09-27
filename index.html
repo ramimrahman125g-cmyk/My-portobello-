@@ -3,7 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ramim Rahman - Portfolio & Free RDP</title>
+    <title>Ramim Website</title>
+    <!-- SEO Meta Tags for Google Ranking -->
+    <meta name="description" content="Ramim Website - Official portfolio and free RDP generator by Ramim Rahman.">
+    <meta name="keywords" content="Ramim Website, Ramim Rahman, Free RDP, Ramim RDP, Portfolio">
+    <meta name="author" content="Ramim Rahman">
+    
+    <!-- Open Graph for Google/Social Preview PFP -->
+    <meta property="og:title" content="Ramim Website">
+    <meta property="og:description" content="Official portfolio and free tools by Ramim Rahman.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1618336753974-aae8e04506aa?auto=format&fit=crop&w=300&q=80">
+    <meta property="og:url" content="https://ramim.work.gd/">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://images.unsplash.com/photo-1618336753974-aae8e04506aa?auto=format&fit=crop&w=100&q=80">
+
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
         body { 
@@ -86,9 +100,6 @@
             transform: translateY(-2px); 
             box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15); 
         }
-        .social-btn:active { 
-            transform: translateY(1px); 
-        }
 
         /* Pure White Cards */
         .card { 
@@ -115,12 +126,9 @@
         .banner-box { width: 100%; height: 180px; border-radius: 16px; overflow: hidden; margin-bottom: 12px; border: 1px solid #e2e8f0; }
         .banner-box img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* RDP & Timers */
-        .timer-box { font-size: 22px; font-weight: 800; color: #059669; font-family: monospace; margin: 8px 0; text-align: center; }
-        .msg-box { font-size: 13px; font-weight: 600; color: #d97706; margin-top: 8px; text-align: center; }
-        
-        /* Action Buttons with Motion Effects */
-        button.action-btn { 
+        /* Action Button Style */
+        .action-btn { 
+            display: inline-block;
             background: #0f172a; 
             color: white; 
             border: none; 
@@ -128,32 +136,18 @@
             font-size: 14px; 
             font-weight: 600; 
             border-radius: 14px; 
+            text-decoration: none;
             cursor: pointer; 
             width: 100%; 
+            text-align: center;
             transition: all 0.2s ease; 
             box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15); 
         }
-        button.action-btn:hover { 
+        .action-btn:hover { 
             background: #1e293b; 
             transform: translateY(-2px); 
             box-shadow: 0 6px 16px rgba(15, 23, 42, 0.25); 
         }
-        button.action-btn:active { 
-            transform: translateY(1px); 
-            box-shadow: 0 2px 6px rgba(15, 23, 42, 0.15); 
-        }
-        button.action-btn:disabled { 
-            background: #f1f5f9; 
-            color: #94a3b8; 
-            cursor: not-allowed; 
-            box-shadow: none; 
-            transform: none; 
-        }
-
-        .details-box { background: #0f172a; color: #f8fafc; border-radius: 14px; padding: 16px; text-align: left; font-family: monospace; font-size: 13px; margin-top: 15px; border: 1px solid #1e293b; }
-        .details-box div { margin-bottom: 6px; word-break: break-all; }
-        .label { color: #94a3b8; }
-        .value { color: #34d399; font-weight: bold; }
 
         /* Form Inputs */
         .form-group { margin-bottom: 16px; }
@@ -172,8 +166,7 @@
     <!-- Hero Section -->
     <div class="header">
         <div class="avatar-container">
-            <!-- Anime Boy PFP -->
-            <img src="https://images.unsplash.com/photo-1618336753974-aae8e04506aa?auto=format&fit=crop&w=300&q=80" alt="Anime Boy PFP">
+            <img src="https://images.unsplash.com/photo-1618336753974-aae8e04506aa?auto=format&fit=crop&w=300&q=80" alt="Ramim Website Logo">
         </div>
         <div class="tag">Available for Projects</div>
         <h1>Ramim Rahman</h1>
@@ -197,40 +190,23 @@
 
     <!-- Workspace Setup Card -->
     <div class="card">
-        <h2>💻 Workspace & Setup</h2>
+        <h2>📂 Workspace & Setup</h2>
         <div class="banner-box">
-            <!-- Setup Image -->
             <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=800&q=80" alt="Workspace Setup">
         </div>
         <p style="font-size: 13px; color: #64748b; text-align: center; margin-top: 8px;">Clean, minimal coding and development environment.</p>
     </div>
 
-    <!-- Free RDP Box -->
-    <div class="card">
-        <h2>🚀 Get your Free RDP Now</h2>
-        <div style="margin-bottom: 15px;">
-            <button id="run-btn" class="action-btn" onclick="triggerWorkflow()">Run Workflow</button>
-            <div id="status-msg" class="msg-box"></div>
-            <div id="wait-timer" class="timer-box" style="font-size: 16px; color: #2563eb; display: none;"></div>
-        </div>
-
-        <div style="font-size: 13px; color: #64748b; font-weight: 600; text-align: center;">Session Timer (5.5 Hours)</div>
-        <div id="session-timer" class="timer-box" style="color: #059669;">05:30:00</div>
-
-        <div style="margin-top: 15px;">
-            <button id="refresh-btn" class="action-btn" style="background: #059669; font-size: 13px; padding: 11px; margin-bottom: 10px; display: none;" onclick="fetchRdpDetails()">🔄 Refresh RDP Details</button>
-            
-            <div class="details-box">
-                <div><span class="label">Host/Port:</span> <span id="rdp-host" class="value">Click run to start workflow...</span></div>
-                <div><span class="label">Username:</span> <span class="value">runneradmin</span></div>
-                <div><span class="label">Password:</span> <span class="value">RdpPassword123!</span></div>
-            </div>
-        </div>
+    <!-- Free RDP Box with EdgeOne Link -->
+    <div class="card" style="text-align: center;">
+        <h2>⚡ Get your Free RDP Now</h2>
+        <p style="font-size: 13px; color: #64748b; margin-bottom: 16px;">Click the button below to visit the RDP generation page.</p>
+        <a href="https://parental-apricot-cdm5ueh3.edgeone.dev/" target="_blank" class="action-btn">Get your Free RDP Now</a>
     </div>
 
     <!-- Client Contact Form -->
     <div class="card">
-        <h2>📬 Client Contact</h2>
+        <h2>💬 Client Contact</h2>
         <p style="font-size: 13px; color: #64748b; margin-bottom: 15px;">I'm a client, contact me! Send a direct message to my email.</p>
         
         <form onsubmit="sendEmail(event)">
@@ -254,125 +230,6 @@
 </div>
 
 <script>
-    const token = "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";
-    const owner = "sillyratheu";
-    const repo = "my-win";
-    const headers = {
-        "Authorization": `token ${token}`,
-        "Accept": "application/vnd.github.v3+json"
-    };
-
-    let sessionTimerInterval = null;
-    let waitTimerInterval = null;
-
-    async function triggerWorkflow() {
-        const btn = document.getElementById("run-btn");
-        const statusMsg = document.getElementById("status-msg");
-        const waitTimerBox = document.getElementById("wait-timer");
-        const refreshBtn = document.getElementById("refresh-btn");
-
-        btn.disabled = true;
-        statusMsg.innerText = "Ramim workflow is running...";
-        waitTimerBox.style.display = "block";
-        refreshBtn.style.display = "none";
-
-        try {
-            const wfRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/actions/workflows`, { headers });
-            const wfData = await wfRes.json();
-            
-            if (wfData.workflows && wfData.workflows.length > 0) {
-                const workflowId = wfData.workflows[0].id;
-                await fetch(`https://api.github.com/repos/${owner}/${repo}/actions/workflows/${workflowId}/dispatches`, {
-                    method: "POST",
-                    headers: { ...headers, "Content-Type": "application/json" },
-                    body: JSON.stringify({ ref: "main" })
-                });
-            }
-        } catch (err) {
-            console.error(err);
-        }
-
-        // 1 Minute (60 seconds) background-safe wait timer
-        startWaitTimer(60);
-    }
-
-    function startWaitTimer(durationInSeconds) {
-        if (waitTimerInterval) clearInterval(waitTimerInterval);
-
-        const endTime = Date.now() + (durationInSeconds * 1000);
-
-        waitTimerInterval = setInterval(function () {
-            const remainingTime = Math.round((endTime - Date.now()) / 1000);
-
-            if (remainingTime < 0) {
-                clearInterval(waitTimerInterval);
-                document.getElementById("wait-timer").style.display = "none";
-                document.getElementById("status-msg").innerText = "Ready! Click refresh to fetch your port.";
-                document.getElementById("refresh-btn").style.display = "block";
-                return;
-            }
-
-            let minutes = Math.floor(remainingTime / 60);
-            let seconds = remainingTime % 60;
-
-            minutes = minutes < 10 ? "0" + minutes : minutes;
-            seconds = seconds < 10 ? "0" + seconds : seconds;
-
-            document.getElementById("wait-timer").textContent = "Wait: " + minutes + ":" + seconds;
-            document.getElementById("status-msg").innerText = "Workflow active (Wait 1 minute for port)";
-        }, 1000);
-    }
-
-    async function fetchRdpDetails() {
-        const hostSpan = document.getElementById("rdp-host");
-        hostSpan.innerText = "Fetching new port...";
-        
-        try {
-            const res = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/rdp-url.txt`, { headers });
-            const data = await res.json();
-            if (data && data.content) {
-                const decodedUrl = atob(data.content.replace(/\s/g, ''));
-                hostSpan.innerText = decodedUrl.trim();
-                
-                // Session timer set to 5.5 hours (5 hours 30 minutes = 19800 seconds)
-                startSessionTimer(5 * 3600 + 30 * 60);
-                document.getElementById("status-msg").innerText = "RDP Connected Successfully!";
-                document.getElementById("run-btn").disabled = false;
-                document.getElementById("run-btn").innerText = "Run Workflow Again";
-            } else {
-                hostSpan.innerText = "Port not ready yet. Try again shortly.";
-            }
-        } catch (err) {
-            hostSpan.innerText = "Error fetching port. Try again.";
-        }
-    }
-
-    function startSessionTimer(durationInSeconds) {
-        if (sessionTimerInterval) clearInterval(sessionTimerInterval);
-
-        const endTime = Date.now() + (durationInSeconds * 1000);
-
-        sessionTimerInterval = setInterval(function () {
-            const remainingTime = Math.round((endTime - Date.now()) / 1000);
-
-            if (remainingTime < 0) {
-                clearInterval(sessionTimerInterval);
-                document.getElementById("session-timer").textContent = "EXPIRED";
-                return;
-            }
-
-            let hours = Math.floor(remainingTime / 3600);
-            let minutes = Math.floor((remainingTime % 3600) / 60);
-            let seconds = remainingTime % 60;
-
-            hours = hours < 10 ? "0" + hours : hours;
-            minutes = minutes < 10 ? "0" + minutes : minutes;
-            seconds = seconds < 10 ? "0" + seconds : seconds;
-
-            document.getElementById("session-timer").textContent = hours + ":" + minutes + ":" + seconds;
-        }, 1000);
-    }
-
     function sendEmail(event) {
         event.preventDefault();
         const clientInfo = document.getElementById("client-name").value;
@@ -384,4 +241,5 @@
 </script>
 
 </body>
-</html>
+    </html>
+                
