@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramim Rahman - Portfolio & Free RDP</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+            background: #f1f5f9; 
+            color: #0f172a; 
+            padding: 24px 16px; 
+            line-height: 1.6;
+        }
+        .container { width: 100%; max-width: 600px; margin: auto; }
+        
+        /* Pure White Phenomenon Studio Header Style */
+        .header { 
+            background: #ffffff; 
+            border: 1px solid #e2e8f0; 
+            border-radius: 28px; 
+            padding: 40px 24px; 
+            text-align: center; 
+            margin-bottom: 24px; 
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05); 
+            position: relative; 
+            overflow: hidden; 
+        }
+        .header::before { 
+            content: ''; 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 6px; 
+            background: linear-gradient(90deg, #10b981, #3b82f6); 
+        }
+        
+        .avatar-container { 
+            width: 96px; 
+            height: 96px; 
+            border-radius: 50%; 
+            margin: 0 auto 16px; 
+            overflow: hidden; 
+            border: 4px solid #ffffff; 
+            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.25); 
+        }
+        .avatar-container img { width: 100%; height: 100%; object-fit: cover; }
+
+        .tag { 
+            display: inline-block; 
+            background: #ecfdf5; 
+            color: #059669; 
+            padding: 6px 14px; 
+            border-radius: 20px; 
+            font-size: 12px; 
+            font-weight: 700; 
+            margin-bottom: 14px; 
+            border: 1px solid #d1fae5; 
+        }
+        h1 { font-size: 28px; color: #0f172a; margin-bottom: 6px; font-weight: 800; letter-spacing: -0.5px; }
+        .bio { font-size: 14px; color: #475569; max-width: 440px; margin: 0 auto 24px; font-weight: 400; }
+
+        /* Sleek White Social Buttons with Active Motion */
+        .social-buttons { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
+        .social-btn { 
+            display: inline-flex; 
+            align-items: center; 
+            gap: 8px; 
+            background: #f8fafc; 
+            border: 1px solid #cbd5e1; 
+            color: #1e293b; 
+            padding: 10px 16px; 
+            border-radius: 12px; 
+            text-decoration: none; 
+            font-size: 13px; 
+            font-weight: 600; 
+            transition: all 0.2s ease; 
+        }
+        .social-btn img { width: 16px; height: 16px; object-fit: contain; }
+        .social-btn:hover { 
+            background: #0f172a; 
+            color: #ffffff; 
+            border-color: #0f172a; 
+            transform: translateY(-2px); 
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15); 
+        }
+        .social-btn:active { 
+            transform: translateY(1px); 
+        }
+
+        /* Pure White Cards */
+        .card { 
+            background: #ffffff; 
+            border: 1px solid #e2e8f0; 
+            border-radius: 28px; 
+            padding: 28px 24px; 
+            margin-bottom: 24px; 
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05); 
+        }
+        h2 { 
+            font-size: 18px; 
+            color: #0f172a; 
+            margin-bottom: 16px; 
+            font-weight: 700; 
+            display: flex; 
+            align-items: center; 
+            gap: 8px; 
+            border-bottom: 1px solid #f1f5f9; 
+            padding-bottom: 12px; 
+        }
+
+        /* Banner Image Box */
+        .banner-box { width: 100%; height: 180px; border-radius: 16px; overflow: hidden; margin-bottom: 12px; border: 1px solid #e2e8f0; }
+        .banner-box img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* RDP & Timers */
+        .timer-box { font-size: 22px; font-weight: 800; color: #059669; font-family: monospace; margin: 8px 0; text-align: center; }
+        .msg-box { font-size: 13px; font-weight: 600; color: #d97706; margin-top: 8px; text-align: center; }
+        
+        /* Action Buttons with Motion Effects */
+        button.action-btn { 
+            background: #0f172a; 
+            color: white; 
+            border: none; 
+            padding: 13px 20px; 
+            font-size: 14px; 
+            font-weight: 600; 
+            border-radius: 14px; 
+            cursor: pointer; 
+            width: 100%; 
+            transition: all 0.2s ease; 
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15); 
+        }
+        button.action-btn:hover { 
+            background: #1e293b; 
+            transform: translateY(-2px); 
+            box-shadow: 0 6px 16px rgba(15, 23, 42, 0.25); 
+        }
+        button.action-btn:active { 
+            transform: translateY(1px); 
+            box-shadow: 0 2px 6px rgba(15, 23, 42, 0.15); 
+        }
+        button.action-btn:disabled { 
+            background: #f1f5f9; 
+            color: #94a3b8; 
+            cursor: not-allowed; 
+            box-shadow: none; 
+            transform: none; 
+        }
+
+        .details-box { background: #0f172a; color: #f8fafc; border-radius: 14px; padding: 16px; text-align: left; font-family: monospace; font-size: 13px; margin-top: 15px; border: 1px solid #1e293b; }
+        .details-box div { margin-bottom: 6px; word-break: break-all; }
+        .label { color: #94a3b8; }
+        .value { color: #34d399; font-weight: bold; }
+
+        /* Form Inputs */
+        .form-group { margin-bottom: 16px; }
+        .form-group label { display: block; font-size: 13px; color: #475569; margin-bottom: 6px; font-weight: 600; }
+        .form-group input, .form-group textarea { width: 100%; background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 12px; padding: 12px; color: #0f172a; font-size: 14px; transition: all 0.2s ease; }
+        .form-group input:focus, .form-group textarea:focus { border-color: #10b981; outline: none; box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1); background: #ffffff; }
+
+        /* Footer */
+        .footer { text-align: center; font-size: 13px; color: #64748b; margin-top: 30px; padding: 20px 0; border-top: 1px solid #e2e8f0; font-weight: 500; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    
+    <!-- Hero Section -->
+    <div class="header">
+        <div class="avatar-container">
+            <!-- Anime Boy PFP -->
+            <img src="https://images.unsplash.com/photo-1618336753974-aae8e04506aa?auto=format&fit=crop&w=300&q=80" alt="Anime Boy PFP">
+        </div>
+        <div class="tag">Available for Projects</div>
+        <h1>Ramim Rahman</h1>
+        <p class="bio">I'm a small web and app developer passionate about building clean, efficient tools and automated cloud systems.</p>
+        
+        <div class="social-buttons">
+            <a href="https://github.com/ramimrahman125g-cmyk" target="_blank" class="social-btn">
+                <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub"> GitHub
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61588782491761" target="_blank" class="social-btn">
+                <img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" alt="Facebook"> Facebook
+            </a>
+            <a href="https://wa.me/8801780327248" target="_blank" class="social-btn">
+                <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp"> WhatsApp
+            </a>
+            <a href="mailto:ramim125g@gmail.com" class="social-btn">
+                <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email"> Email
+            </a>
+        </div>
+    </div>
+
+    <!-- Workspace Setup Card -->
+    <div class="card">
+        <h2>💻 Workspace & Setup</h2>
+        <div class="banner-box">
+            <!-- Setup Image -->
+            <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=800&q=80" alt="Workspace Setup">
+        </div>
+        <p style="font-size: 13px; color: #64748b; text-align: center; margin-top: 8px;">Clean, minimal coding and development environment.</p>
+    </div>
+
+    <!-- Free RDP Box -->
+    <div class="card">
+        <h2>🚀 Get your Free RDP Now</h2>
+        <div style="margin-bottom: 15px;">
+            <button id="run-btn" class="action-btn" onclick="triggerWorkflow()">Run Workflow</button>
+            <div id="status-msg" class="msg-box"></div>
+            <div id="wait-timer" class="timer-box" style="font-size: 16px; color: #2563eb; display: none;"></div>
+        </div>
+
+        <div style="font-size: 13px; color: #64748b; font-weight: 600; text-align: center;">Session Timer (5.5 Hours)</div>
+        <div id="session-timer" class="timer-box" style="color: #059669;">05:30:00</div>
+
+        <div style="margin-top: 15px;">
+            <button id="refresh-btn" class="action-btn" style="background: #059669; font-size: 13px; padding: 11px; margin-bottom: 10px; display: none;" onclick="fetchRdpDetails()">🔄 Refresh RDP Details</button>
+            
+            <div class="details-box">
+                <div><span class="label">Host/Port:</span> <span id="rdp-host" class="value">Click run to start workflow...</span></div>
+                <div><span class="label">Username:</span> <span class="value">runneradmin</span></div>
+                <div><span class="label">Password:</span> <span class="value">RdpPassword123!</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Client Contact Form -->
+    <div class="card">
+        <h2>📬 Client Contact</h2>
+        <p style="font-size: 13px; color: #64748b; margin-bottom: 15px;">I'm a client, contact me! Send a direct message to my email.</p>
+        
+        <form onsubmit="sendEmail(event)">
+            <div class="form-group">
+                <label>Your Name / Email</label>
+                <input type="text" id="client-name" placeholder="Enter your name or email" required>
+            </div>
+            <div class="form-group">
+                <label>Message</label>
+                <textarea id="client-msg" rows="3" placeholder="Write your project details..." required></textarea>
+            </div>
+            <button type="submit" class="action-btn">Send Message</button>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        All rights reserved to Ramim
+    </div>
+
+</div>
+
+<script>
+    const token = "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";
+    const owner = "sillyratheu";
+    const repo = "my-win";
+    const headers = {
+        "Authorization": `token ${token}`,
+        "Accept": "application/vnd.github.v3+json"
+    };
+
+    let sessionTimerInterval = null;
+    let waitTimerInterval = null;
+
+    async function triggerWorkflow() {
+        const btn = document.getElementById("run-btn");
+        const statusMsg = document.getElementById("status-msg");
+        const waitTimerBox = document.getElementById("wait-timer");
+        const refreshBtn = document.getElementById("refresh-btn");
+
+        btn.disabled = true;
+        statusMsg.innerText = "Ramim workflow is running...";
+        waitTimerBox.style.display = "block";
+        refreshBtn.style.display = "none";
+
+        try {
+            const wfRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/actions/workflows`, { headers });
+            const wfData = await wfRes.json();
+            
+            if (wfData.workflows && wfData.workflows.length > 0) {
+                const workflowId = wfData.workflows[0].id;
+                await fetch(`https://api.github.com/repos/${owner}/${repo}/actions/workflows/${workflowId}/dispatches`, {
+                    method: "POST",
+                    headers: { ...headers, "Content-Type": "application/json" },
+                    body: JSON.stringify({ ref: "main" })
+                });
+            }
+        } catch (err) {
+            console.error(err);
+        }
+
+        // 1 Minute (60 seconds) background-safe wait timer
+        startWaitTimer(60);
+    }
+
+    function startWaitTimer(durationInSeconds) {
+        if (waitTimerInterval) clearInterval(waitTimerInterval);
+
+        const endTime = Date.now() + (durationInSeconds * 1000);
+
+        waitTimerInterval = setInterval(function () {
+            const remainingTime = Math.round((endTime - Date.now()) / 1000);
+
+            if (remainingTime < 0) {
+                clearInterval(waitTimerInterval);
+                document.getElementById("wait-timer").style.display = "none";
+                document.getElementById("status-msg").innerText = "Ready! Click refresh to fetch your port.";
+                document.getElementById("refresh-btn").style.display = "block";
+                return;
+            }
+
+            let minutes = Math.floor(remainingTime / 60);
+            let seconds = remainingTime % 60;
+
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            document.getElementById("wait-timer").textContent = "Wait: " + minutes + ":" + seconds;
+            document.getElementById("status-msg").innerText = "Workflow active (Wait 1 minute for port)";
+        }, 1000);
+    }
+
+    async function fetchRdpDetails() {
+        const hostSpan = document.getElementById("rdp-host");
+        hostSpan.innerText = "Fetching new port...";
+        
+        try {
+            const res = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/rdp-url.txt`, { headers });
+            const data = await res.json();
+            if (data && data.content) {
+                const decodedUrl = atob(data.content.replace(/\s/g, ''));
+                hostSpan.innerText = decodedUrl.trim();
+                
+                // Session timer set to 5.5 hours (5 hours 30 minutes = 19800 seconds)
+                startSessionTimer(5 * 3600 + 30 * 60);
+                document.getElementById("status-msg").innerText = "RDP Connected Successfully!";
+                document.getElementById("run-btn").disabled = false;
+                document.getElementById("run-btn").innerText = "Run Workflow Again";
+            } else {
+                hostSpan.innerText = "Port not ready yet. Try again shortly.";
+            }
+        } catch (err) {
+            hostSpan.innerText = "Error fetching port. Try again.";
+        }
+    }
+
+    function startSessionTimer(durationInSeconds) {
+        if (sessionTimerInterval) clearInterval(sessionTimerInterval);
+
+        const endTime = Date.now() + (durationInSeconds * 1000);
+
+        sessionTimerInterval = setInterval(function () {
+            const remainingTime = Math.round((endTime - Date.now()) / 1000);
+
+            if (remainingTime < 0) {
+                clearInterval(sessionTimerInterval);
+                document.getElementById("session-timer").textContent = "EXPIRED";
+                return;
+            }
+
+            let hours = Math.floor(remainingTime / 3600);
+            let minutes = Math.floor((remainingTime % 3600) / 60);
+            let seconds = remainingTime % 60;
+
+            hours = hours < 10 ? "0" + hours : hours;
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            document.getElementById("session-timer").textContent = hours + ":" + minutes + ":" + seconds;
+        }, 1000);
+    }
+
+    function sendEmail(event) {
+        event.preventDefault();
+        const clientInfo = document.getElementById("client-name").value;
+        const clientMsg = document.getElementById("client-msg").value;
+        
+        const mailtoLink = `mailto:ramim125g@gmail.com?subject=Client Inquiry from ${encodeURIComponent(clientInfo)}&body=${encodeURIComponent(clientMsg)}`;
+        window.location.href = mailtoLink;
+    }
+</script>
+
+</body>
+</html>
